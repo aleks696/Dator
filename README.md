@@ -5,29 +5,28 @@ Dator is an application to find your partner or friends.
 
 ## Examples of API requests
 
-http://localhost/api/create_user :
+http://127.0.0.1:8000/api/login_register_user : (GET)
 
 {
-    "name": "Emily",
-    "full_name": "Emily Davis",
-    "email": "Emily@gmal.co",
-    "phone_number": "384444444",
+    "email": "john@gmal.co",
     "password": "123456789"
 }
 
-http://localhost/api/create_profile :
+http://127.0.0.1:8000/api/create_profile/3 : (GET)
 
 {
     "image": "https://www.example.com/image.jpg",
-    "user_id": 4,
+    "user_id": 1,
+    "name": "Michael",
     "age": 23,
-    "gender": "жінка",
-    "city": "Харків",
-    "about_info": "Привіт! Мене звати Емілі і я мрію змінити світ своєю творчістю. Я відкрита та дружня особистість зі склонністю до мистецтва. Моїм гаслом у житті є 'Живи кожен момент'. Я вірю у справжні дружні стосунки і віддана своїм мріям та цілям",
+    "gender": "чоловік",
+    "phone": "380111111",
+    "search_purpose": "Друга",
+    "city": "Харків",    
     "hobbies": "У вільний час я захоплююся малюванням та розробкою дизайну. Це моє хобі, що робить мене щасливою та задоволеною. Крім того, я люблю музику та танці - це моє спосіб виразити свої почуття та емоції. Веселі вечори я проводжу з друзями у кіно або на концертах, насолоджуючись моментами радості та веселощів."
 }
 
-http://localhost/api/create_membership :
+http://127.0.0.1:8000/api/create_membership/1 : (POST)
 
 {
     "user_id": 1,
@@ -36,29 +35,28 @@ http://localhost/api/create_membership :
     "start_date": "2024-05-12"
 }
 
-http://localhost/api/update_user/{id} :
+http://127.0.0.1:8000/api/update_user/1 : (PUT)
 
 {
-    "name": "Michael",
-    "full_name": "Michael Brown",
     "email": "michael@gmal.co",
-    "phone_number": "383333333",
     "password": "123456789"
 }
 
-http://localhost/api/update_profile/{id} :
+http://127.0.0.1:8000/api/update_profile/1 : (PUT)
 
 {
     "image": "https://www.example.com/image.jpg",
     "user_id": 1,
+    "name": "Руслан",
     "age": 25,
     "gender": "чоловік",
-    "city": "Kyiv",
-    "about_info": "Привіт! Мене звати John і я веб-розробник зі страстью до створення креативних та інноваційних веб-додатків.",
-    "hobbies": "У вільний час я великий прихильник подорожей та фотографування. Завжди радий відкривати нові місця та ділитися своїми враженнями з подорожей з друзями. Також люблю грати на гітарі, що допомагає мені розслабитися та відпочити від робочих буднів."
+    "phone": "380111111",
+    "search_purpose": "Друга",
+    "city": "Харків",    
+    "hobbies": "У вільний час я захоплююся малюванням та розробкою дизайну. Це моє хобі, що робить мене щасливою та задоволеною. Крім того, я люблю музику та танці - це моє спосіб виразити свої почуття та емоції. Веселі вечори я проводжу з друзями у кіно або на концертах, насолоджуючись моментами радості та веселощів."
 }
 
-http://localhost/api/update_membership/{id} :
+http://127.0.0.1:8000/api/update_membership/1 : (PUT)
 
 {
     "user_id": 1,
@@ -66,6 +64,18 @@ http://localhost/api/update_membership/{id} :
     "swipes_amount": 40,
     "start_date": "2024-05-12"
 }
+
+http://127.0.0.1:8000/api/profiles/2/like : (GET)
+
+{
+    "user_liked_id": 2,
+    "liked_user_id": 1
+}
+
+http://127.0.0.1:8000/api/get_user_info/1 : (POST)
+
+http://127.0.0.1:8000/api/profiles/3/user_id_likes : (GET)
+
 
 ### To make migrations input in Terminal:
 

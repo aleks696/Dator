@@ -9,18 +9,20 @@ class Profile extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'image',
+        'photo',
+        'name',
         'age',
         'gender',
+        'phone',
+        'search_purpose',
         'city',
-        'about_info',
         'hobbies',
     ];
 
     protected $hidden = [
+        'id',
         'user_id',
         'created_at',
-        'updated_at',
     ];
     public function user()
     {
