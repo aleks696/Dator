@@ -2,91 +2,97 @@
 
 Dator is an application to find your partner or friends.
 
+Abilities/ User can:
+
+- Log In or Register in app.
+- Create Profile.
+- Has 100 swipes of random people in app with free trial.
+- Premium has endless amount of swipes.
+- Like another people and match if another person also liked them.
+- Update their info for Log In or Profile page.
+- Any time upgrade membership to Premium.
+
 
 ## Examples of API requests
 
-http://127.0.0.1:8000/api/login_register_user : (GET)
+http:localhost/api/login_register_user : (GET)
 
 {
-    "email": "john@gmal.co",
-    "password": "123456789"
+    "email": ".....",
+    "password": "....."
 }
 
-http://127.0.0.1:8000/api/create_profile/3 : (GET)
+http:localhost/api/create_profile/{id} : (GET)
 
 {
-    "image": "https://www.example.com/image.jpg",
-    "user_id": 1,
-    "name": "Michael",
-    "age": 23,
-    "gender": "чоловік",
-    "phone": "380111111",
-    "search_purpose": "Друга",
-    "city": "Харків",    
-    "hobbies": "У вільний час я захоплююся малюванням та розробкою дизайну. Це моє хобі, що робить мене щасливою та задоволеною. Крім того, я люблю музику та танці - це моє спосіб виразити свої почуття та емоції. Веселі вечори я проводжу з друзями у кіно або на концертах, насолоджуючись моментами радості та веселощів."
+    "image": "https://....",
+    "user_id": {id},
+    "name": "...",
+    "age": ...,
+    "gender": "...",
+    "phone": "...",
+    "search_purpose": "...",
+    "city": "...",    
+    "hobbies": "..."
 }
 
-http://127.0.0.1:8000/api/create_membership/1 : (POST)
+http:localhost/api/create_membership/{id} : (POST)
 
 {
-    "user_id": 1,
-    "membership": "free",
-    "swipes_amount": 20,
-    "start_date": "2024-05-12"
+    "user_id": {id},
+    "membership": "...",
+    "swipes_amount": ...,
+    "start_date": "..."
 }
 
-http://127.0.0.1:8000/api/update_user/1 : (PUT)
+http:localhost/api/update_user/{id} : (PUT)
 
 {
-    "email": "michael@gmal.co",
-    "password": "123456789"
+    "email": "...",
+    "password": "..."
 }
 
-http://127.0.0.1:8000/api/update_profile/1 : (PUT)
+http:localhost/api/update_profile/{id} : (PUT)
 
 {
-    "image": "https://www.example.com/image.jpg",
-    "user_id": 1,
-    "name": "Руслан",
-    "age": 25,
-    "gender": "чоловік",
-    "phone": "380111111",
-    "search_purpose": "Друга",
-    "city": "Харків",    
-    "hobbies": "У вільний час я захоплююся малюванням та розробкою дизайну. Це моє хобі, що робить мене щасливою та задоволеною. Крім того, я люблю музику та танці - це моє спосіб виразити свої почуття та емоції. Веселі вечори я проводжу з друзями у кіно або на концертах, насолоджуючись моментами радості та веселощів."
+    "image": "https://....",
+    "user_id": {id},
+    "name": "...",
+    "age": ...,
+    "gender": "...",
+    "phone": "...",
+    "search_purpose": "...",
+    "city": "...",    
+    "hobbies": "..."
 }
 
-http://127.0.0.1:8000/api/update_membership/1 : (PUT)
+http:localhost/api/update_membership/{id} : (PUT)
 
 {
-    "user_id": 1,
-    "membership": "free",
-    "swipes_amount": 40,
-    "start_date": "2024-05-12"
+    "user_id": {id},
+    "membership": "...",
+    "swipes_amount": ...,
+    "start_date": "..."
 }
 
-http://127.0.0.1:8000/api/profiles/2/like : (GET)
+http:localhost/api/profiles/{id}/like : (GET)
 
 {
-    "user_liked_id": 2,
-    "liked_user_id": 1
+    "user_liked_id": {id},
+    "liked_user_id": {id}
 }
 
-http://127.0.0.1:8000/api/get_user_info/1 : (POST)
+http:localhost/api/get_user_info/{id} : (POST)
 
-http://127.0.0.1:8000/api/profiles/3/user_id_likes : (GET)
+http:localhost/api/profiles/{id}/user_id_likes : (GET)
 
+
+### Each request user can make via apps, such as Postman or another one, that can send requests.
+
+To make API work, just input in root apps directory in Terminal:
+
+- php artisan serve
 
 ### To make migrations input in Terminal:
 
-php artisan migrate
-
-If foreign key doesn't work then, try to add in PhpMyAdmin lines: 
-
-ALTER TABLE membership
-ADD CONSTRAINT fk_membership_user_id FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
-ALTER TABLE profile
-ADD CONSTRAINT fk_profile_user_id FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
-
-Also fields user_id must be: NOT NULL, bigint(20), unsigned.
-
+- php artisan migrate

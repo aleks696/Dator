@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use App\Models\Likes;
@@ -11,7 +10,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
-
 class DatorController extends Controller
 {
     public function login_register_user(Request $request)
@@ -19,6 +17,7 @@ class DatorController extends Controller
         if ($request->has(['email', 'password'])) {
             $user = User::where('email', $request->email)->first();
 
+            // Check if user exists and password is correct
             if ($user) {
                 if (Hash::check($request->password, $user->password)) {
                     return response()->json(['id' => $user->id]);
@@ -113,7 +112,7 @@ class DatorController extends Controller
 
         $imageString = $request->input('photo');
         if ($imageString) {
-            // Decode into binary code
+            // Decode image into binary code
             $imageData = base64_decode($imageString);
             $request->merge(['photo' => $imageData]);
         }
@@ -183,6 +182,7 @@ class DatorController extends Controller
         return response()->json($profiles_data);
     }
 
+    // Request for user to like another user profile
     public function request_like_profile(Request $request, $profile_id)
     {
         $profile = Profile::find($profile_id);
@@ -220,6 +220,7 @@ class DatorController extends Controller
         return response()->json(['success' => 'Профіль лайкнуто.']);
     }
 
+    // Request to get mutual likes of accounts, returns users ids
     public function get_mutual_likes($user_id)
     {
         // Get all mutual likes for chosen user

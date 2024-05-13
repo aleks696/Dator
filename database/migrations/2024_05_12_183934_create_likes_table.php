@@ -22,7 +22,6 @@ return new class extends Migration
             $table->foreign('liked_user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
-
     /**
      * Reverse the migrations.
      */

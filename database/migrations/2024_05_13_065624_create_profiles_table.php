@@ -11,13 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('memberships', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
-            $table->string("membership");
-            $table->integer("swipes_amount");
-            $table->date('start_date');
-            $table->date('end_date')->storedAs('DATE_ADD(start_date, INTERVAL 30 DAY)');
+            $table->binary('photo')->nullable();
+            $table->string("name");
+            $table->integer("age");
+            $table->string("gender");
+            $table->string("phone");
+            $table->string("search_purpose");
+            $table->string("city");
+            $table->string("hobbies");
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('memberships');
+        Schema::dropIfExists('profiles');
     }
 };

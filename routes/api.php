@@ -23,6 +23,5 @@ Route::post('/get_profiles', [DatorController::class, 'get_profiles']);
 Route::get('/profiles/{user_id}/like', [DatorController::class, 'request_like_profile']);
 Route::get('/profiles/{user_id}/user_id_likes', [DatorController::class, 'get_mutual_likes']);
 Route::put('/update_user/{id}', [DatorController::class, 'update_user']);
-Route::put('/update_profile/{id}', 'App\Http\Controllers\DatorController@update_profile');
-Route::put('/update_membership/{id}', 'App\Http\Controllers\DatorController@update_membership');
-
+Route::put('/update_profile/{id}', [DatorController::class, 'update_profile']);
+Route::put('/update_membership/{id}', [DatorController::class, 'update_membership']);
