@@ -15,15 +15,22 @@ Abilities/ User can:
 
 ## Examples of API requests
 
-http:localhost/api/login_register_user : (GET)
+### To Log In or Registration user USE:
 
+> (GET) http:localhost/api/login_register_user : 
+
+```json
 {
     "email": ".....",
     "password": "....."
 }
 
-http:localhost/api/create_profile/{id} : (GET)
+```
 
+### To create users profile USE:
+> (GET) http:localhost/api/create_profile/{id} :
+
+````json
 {
     "image": "https://....",
     "user_id": {id},
@@ -35,25 +42,34 @@ http:localhost/api/create_profile/{id} : (GET)
     "city": "...",    
     "hobbies": "..."
 }
+````
+### To create users membership USE:
 
-http:localhost/api/create_membership/{id} : (POST)
+>  (POST) http:localhost/api/create_membership/{id} :
 
+```json
 {
     "user_id": {id},
     "membership": "...",
     "swipes_amount": ...,
     "start_date": "..."
 }
+```
+### To update user USE:
 
-http:localhost/api/update_user/{id} : (PUT)
+>  (PUT) http:localhost/api/update_user/{id} :
 
+```json
 {
     "email": "...",
     "password": "..."
 }
+```
+### To update users profile USE:
 
-http:localhost/api/update_profile/{id} : (PUT)
+>  (PUT) http:localhost/api/update_profile/{id} :
 
+```json
 {
     "image": "https://....",
     "user_id": {id},
@@ -65,26 +81,38 @@ http:localhost/api/update_profile/{id} : (PUT)
     "city": "...",    
     "hobbies": "..."
 }
+```
+### To update users membership USE:
+> (PUT) http:localhost/api/update_membership/{id} :
 
-http:localhost/api/update_membership/{id} : (PUT)
-
+```json
 {
     "user_id": {id},
     "membership": "...",
     "swipes_amount": ...,
     "start_date": "..."
 }
+```
+### To like another user USE:
+> (GET) http:localhost/api/profiles/{id}/like :
 
-http:localhost/api/profiles/{id}/like : (GET)
-
+```json
 {
     "user_liked_id": {id},
     "liked_user_id": {id}
 }
+```
+### To get information about another user USE:
 
-http:localhost/api/get_user_info/{id} : (POST)
+>  (POST) http:localhost/api/get_user_info/{id}
 
-http:localhost/api/profiles/{id}/user_id_likes : (GET)
+### To get users mutual likes USE:
+
+>  (GET) http:localhost/api/profiles/{id}/user_id_likes
+
+### To get random profiles USE:
+
+> (POST) http:localhost/api/get_profiles
 
 
 ### Each request user can make via apps, such as Postman or another one, that can send requests.
